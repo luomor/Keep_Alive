@@ -22,7 +22,7 @@ android {
 
     signingConfigs {
         config {
-            keyAlias 'module'
+            keyAlias 'key0'
             keyPassword '123456'
             storeFile file('module.keystore')
             storePassword '123456'
@@ -34,11 +34,13 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.config
+            zipAlignEnabled true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             signingConfig signingConfigs.config
+            zipAlignEnabled true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
