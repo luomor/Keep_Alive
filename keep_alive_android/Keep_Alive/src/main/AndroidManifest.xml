@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.keep">
+    package="com.luomor.keep">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -36,9 +36,6 @@
                     android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <meta-data
-            android:name="dcloud_appkey"
-            android:value="990d915bfd9895b0b0ecbfd4990a9130" />
     </application>
 
 </manifest>
