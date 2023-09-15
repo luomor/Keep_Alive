@@ -110,7 +110,7 @@
         </activity>
         <meta-data
             android:name="dcloud_appkey"
-            android:value="1757bc3e2d5fa5236395db435f6f998c" />
+            android:value="990d915bfd9895b0b0ecbfd4990a9130" />
     </application>
 
 </manifest>
