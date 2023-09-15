@@ -5,7 +5,7 @@
         {
           "type": "module",
           "name": "XY-Keep_Alive",
-          "class": "com.example.keep.keepAlive"
+          "class": "com.luomor.keep.keepAlive"
         }
       ]
     }
