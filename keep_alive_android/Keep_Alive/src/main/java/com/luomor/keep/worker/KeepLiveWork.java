@@ -1,4 +1,4 @@
-package com.example.keep.worker;
+package com.luomor.keep.worker;
 
 import android.content.Context;
 import android.util.Log;
@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
-import com.example.keep.service.KeepAliveJobService;
+import com.luomor.keep.service.KeepAliveJobService;
 
 public class KeepLiveWork extends Worker {
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.mall.module">
+    package="com.luomor.keepalive">
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -30,10 +30,10 @@
         android:largeHeap="true"
         android:supportsRtl="true">
 
-        <service android:name="com.example.keep.service.ForegroundService"  android:exported="true" android:enabled="true">
+        <service android:name="com.luomor.keep.service.ForegroundService"  android:exported="true" android:enabled="true">
         </service>
 
-        <service android:name="com.example.keep.service.KeepAliveJobService" android:permission="android.permission.BIND_JOB_SERVICE"  android:exported="true" android:enabled="true">
+        <service android:name="com.luomor.keep.service.KeepAliveJobService" android:permission="android.permission.BIND_JOB_SERVICE"  android:exported="true" android:enabled="true">
         </service>
 
         <!-- 应用入口 -->
@@ -62,7 +62,7 @@
             </intent-filter>
         </activity>
         
-        <receiver android:name="com.example.keep.receiver.OnePxReceiver"
+        <receiver android:name="com.luomor.keep.receiver.OnePxReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.SCREEN_OFF" />
@@ -72,7 +72,7 @@
         <meta-data android:name="dcloud_uninview_background"
             android:value="true"/>
         <activity
-            android:name="com.example.keep.activity.OnePxActivity"
+            android:name="com.luomor.keep.activity.OnePxActivity"
             android:exported="true">
 
             <intent-filter>

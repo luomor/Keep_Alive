@@ -1,4 +1,4 @@
-package com.example.keep.receiver;
+package com.luomor.keep.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
 
-import com.example.keep.activity.OnePxActivity;
+import com.luomor.keep.activity.OnePxActivity;
 
 public class OnePxReceiver extends BroadcastReceiver {
     private static OnePxReceiver receiver;

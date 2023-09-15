@@ -1,4 +1,4 @@
-package com.example.keep.constant;
+package com.luomor.keep.constant;
 
 public interface KeepAlive {
     String TAG="keep-alive";

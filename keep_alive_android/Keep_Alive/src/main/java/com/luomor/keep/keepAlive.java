@@ -1,4 +1,4 @@
-package com.example.keep;
+package com.luomor.keep;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,10 +8,10 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.keep.receiver.OnePxReceiver;
-import com.example.keep.service.ForegroundService;
-import com.example.keep.service.KeepAliveJobService;
-import com.example.keep.worker.KeepLiveWork;
+import com.luomor.keep.receiver.OnePxReceiver;
+import com.luomor.keep.service.ForegroundService;
+import com.luomor.keep.service.KeepAliveJobService;
+import com.luomor.keep.worker.KeepLiveWork;
 
 import org.json.JSONException;
 

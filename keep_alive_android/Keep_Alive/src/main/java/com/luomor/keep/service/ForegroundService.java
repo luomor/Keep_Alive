@@ -1,4 +1,4 @@
-package com.example.keep.service;
+package com.luomor.keep.service;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -15,7 +15,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import com.example.keep.R;
-import com.example.keep.constant.KeepAlive;
+import com.luomor.keep.constant.KeepAlive;
 
 
 public class ForegroundService extends Service  {

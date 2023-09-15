@@ -1,4 +1,4 @@
-package com.example.keep.service;
+package com.luomor.keep.service;
 
 
 import android.annotation.SuppressLint;
@@ -12,7 +12,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 
-import com.example.keep.utils.util;
+import com.luomor.keep.utils.util;
 
 @SuppressLint("SpecifyJobSchedulerIdRange")
 public class KeepAliveJobService extends JobService {
