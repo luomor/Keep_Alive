@@ -18,7 +18,7 @@
 	const code = ref('')
 
 	const start = () => {
-		const KeepAlive = uni.requireNativePlugin('Keep_Alive')
+		const KeepAlive = uni.requireNativePlugin('Luomor-Keep-Alive')
 		// 启动服务
 		KeepAlive.start({
 				"title": "app",
@@ -35,7 +35,7 @@
 			})
 	}
 	const stop = () => {
-		const KeepAlive = uni.requireNativePlugin('Keep_Alive')
+		const KeepAlive = uni.requireNativePlugin('Luomor-Keep-Alive')
 		// 销毁服务
 		KeepAlive.destroy(
 			function(ret) {
