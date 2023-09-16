@@ -37,12 +37,12 @@ public class keepAlive extends UniModule {
                 mUniSDKInstance.getContext().startService(intent);
 
                 // 开启一像素服务
-                if (!options.containsKey("onePxEnabled") || options.getBoolean("onePxEnabled")) {
+                if (options.containsKey("onePxEnabled") && options.getBoolean("onePxEnabled")) {
                     OnePxReceiver.register1pxReceiver(mUniSDKInstance.getContext());
                 }
 
                 // 添加任务
-                if (!options.containsKey("workerManager") || options.getBoolean("workerManager")) {
+                if (options.containsKey("workerManager") && options.getBoolean("workerManager")) {
                     OneTimeWorkRequest oneTimeWorkRequest = new OneTimeWorkRequest
                             .Builder(KeepLiveWork.class)
                             .setInitialDelay(10, TimeUnit.SECONDS)
