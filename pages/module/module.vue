@@ -23,7 +23,8 @@
 		KeepAlive.start({
 				"title": "烙馍网App",
 				"text": "正在后台运行",
-				"onePxEnabled:": true
+				"onePxEnabled:": true,
+				"workerManager": true
 			},
 			function(ret) {
 				console.log(ret)
