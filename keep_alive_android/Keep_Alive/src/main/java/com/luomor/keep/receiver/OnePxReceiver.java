@@ -18,10 +18,10 @@ public class OnePxReceiver extends BroadcastReceiver {
             Intent it = new Intent(context, OnePxActivity.class);
             it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(it);
-            Log.i(TAG,"1px--screen off-");
+            Log.i(TAG, "1px--screen off-");
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {//屏幕被打开
             context.sendBroadcast(new Intent("finish activity"));
-            Log.i(TAG,"1px--screen on-");
+            Log.i(TAG, "1px--screen on-");
         }
     }
 
