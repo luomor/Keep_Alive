@@ -13,11 +13,12 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class OnePxActivity  extends AppCompatActivity {
+public class OnePxActivity extends AppCompatActivity {
 
     private static final String TAG = OnePxActivity.class.getSimpleName();
 
     private BroadcastReceiver br;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +34,7 @@ public class OnePxActivity  extends AppCompatActivity {
         br = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Log.d(TAG,"OnepxActivity finish   ================");
+                Log.d(TAG, "OnepxActivity finish   ================");
                 finish();
             }
         };
@@ -45,24 +46,24 @@ public class OnePxActivity  extends AppCompatActivity {
 
     /**
      * 检查屏幕状态  isScreenOn为true  屏幕“亮”结束该Activity
-     * */
+     */
     private void checkScreenOn(String methodName) {
-        Log.d(TAG,"from call method: " + methodName);
+        Log.d(TAG, "from call method: " + methodName);
         PowerManager pm = (PowerManager) OnePxActivity.this.getSystemService(Context.POWER_SERVICE);
         boolean isScreenOn = pm.isScreenOn();
-        Log.i(TAG,"isScreenOn: "+isScreenOn);
-        if(isScreenOn){
+        Log.i(TAG, "isScreenOn: " + isScreenOn);
+        if (isScreenOn) {
             finish();
         }
     }
 
     @Override
     protected void onDestroy() {
-        Log.i(TAG,"===onDestroy===");
-        try{
+        Log.i(TAG, "===onDestroy===");
+        try {
             unregisterReceiver(br);
-        }catch (IllegalArgumentException e){
-            Log.e(TAG,"receiver is not resisted: "+e);
+        } catch (IllegalArgumentException e) {
+            Log.e(TAG, "receiver is not resisted: " + e);
         }
         super.onDestroy();
     }
