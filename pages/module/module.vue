@@ -22,7 +22,8 @@
 		// 启动服务
 		KeepAlive.start({
 				"title": "烙馍网App",
-				"text": "正在后台运行"
+				"text": "正在后台运行",
+				"onePxEnabled:": true
 			},
 			function(ret) {
 				console.log(ret)
