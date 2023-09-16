@@ -18,7 +18,7 @@ import com.luomor.keep.utils.util;
 public class KeepAliveJobService extends JobService {
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
-        if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startJob(this);
         }
         boolean isRunning = util.isRunningService(this, KeepAliveJobService.class.getName());
@@ -33,16 +33,16 @@ public class KeepAliveJobService extends JobService {
         JobInfo.Builder builder = new JobInfo.Builder(27,
                 new ComponentName(context.getPackageName(), KeepAliveJobService.class.getName()))
                 .setPersisted(true);
-        if (Build.VERSION.SDK_INT<Build.VERSION_CODES.N){
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             builder.setPeriodic(1000);
-        }else {
+        } else {
             builder.setMinimumLatency(1000);
         }
         jobScheduler.schedule(builder.build());
         Log.e("JobService", "jobService: ");
     }
 
-    public static void stopJob(Context context){
+    public static void stopJob(Context context) {
         Log.e("JobService", "stop");
         JobScheduler jobScheduler = (JobScheduler) context.getSystemService(JOB_SCHEDULER_SERVICE);
         jobScheduler.cancel(27);
