@@ -65,7 +65,9 @@ public class ForegroundService extends Service {
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT) // 设置优先级 PRIORITY_DEFAULT
                         .setWhen(System.currentTimeMillis()) // 设置通知发送的时间戳
                         .setContentIntent(pendingIntent) // 跳转页面
-                        .setVisibility(NotificationCompat.VISIBILITY_SECRET) // 屏幕可见性，1、VISIBILITY_PUBLIC 在所有锁定屏幕上完整显示此通知 2、VISIBILITY_PRIVATE 隐藏安全锁屏上的敏感或私人信息 3、VISIBILITY_SECRET 不显示任何部分
+                        // 屏幕可见性，1、VISIBILITY_PUBLIC 在所有锁定屏幕上完整显示此通知
+                        // 2、VISIBILITY_PRIVATE 隐藏安全锁屏上的敏感或私人信息 3、VISIBILITY_SECRET 不显示任何部分
+                        .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                         .setOngoing(true);
                 Log.e(TAG, "onStart");
                 NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
