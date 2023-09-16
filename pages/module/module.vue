@@ -21,7 +21,7 @@
 		const KeepAlive = uni.requireNativePlugin('Luomor-Keep-Alive')
 		// 启动服务
 		KeepAlive.start({
-				"title": "app",
+				"title": "烙馍网App",
 				"text": "正在后台运行"
 			},
 			function(ret) {
@@ -45,7 +45,6 @@
 						icon: 'none'
 					})
 				}
-
 			})
 	}
 </script>
