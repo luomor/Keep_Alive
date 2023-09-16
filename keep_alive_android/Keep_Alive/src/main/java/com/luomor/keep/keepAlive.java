@@ -33,15 +33,15 @@ public class keepAlive extends UniModule {
                 Intent intent = new Intent(mUniSDKInstance.getContext(), ForegroundService.class);
                 intent.putExtra("title", options.getString("title"));
                 intent.putExtra("text", options.getString("text"));
-                //开启前台通知服务
+                // 开启前台通知服务
                 mUniSDKInstance.getContext().startService(intent);
 
-                //开启一像素服务
+                // 开启一像素服务
                 if (!options.containsKey("onePxEnabled") || options.getBoolean("onePxEnabled")) {
                     OnePxReceiver.register1pxReceiver(mUniSDKInstance.getContext());
                 }
 
-                //添加任务
+                // 添加任务
                 if (!options.containsKey("workerManager") || options.getBoolean("workerManager")) {
                     OneTimeWorkRequest oneTimeWorkRequest = new OneTimeWorkRequest
                             .Builder(KeepLiveWork.class)
