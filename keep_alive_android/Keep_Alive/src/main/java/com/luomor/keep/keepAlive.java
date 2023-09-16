@@ -28,20 +28,20 @@ public class keepAlive extends UniModule {
     @UniJSMethod(uiThread = true)
     public void start(JSONObject options, UniJSCallback callback) throws JSONException {
         try {
-            Log.e(TAG, "testAsyncFunc--" + options);
+            Log.e(TAG, "start--" + options);
             if (mUniSDKInstance != null && mUniSDKInstance.getContext() instanceof Activity) {
                 Intent intent = new Intent(mUniSDKInstance.getContext(), ForegroundService.class);
                 intent.putExtra("title", options.getString("title"));
                 intent.putExtra("text", options.getString("text"));
-//                 开启前台通知服务
+                //开启前台通知服务
                 mUniSDKInstance.getContext().startService(intent);
 
-//                 开启一像素服务
+                //开启一像素服务
                 if (!options.containsKey("onePxEnabled") || options.getBoolean("onePxEnabled")) {
                     OnePxReceiver.register1pxReceiver(mUniSDKInstance.getContext());
                 }
 
-//                 添加任务
+                //添加任务
                 if (!options.containsKey("workerManager") || options.getBoolean("workerManager")) {
                     OneTimeWorkRequest oneTimeWorkRequest = new OneTimeWorkRequest
                             .Builder(KeepLiveWork.class)
