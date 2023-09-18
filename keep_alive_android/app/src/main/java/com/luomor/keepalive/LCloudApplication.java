@@ -2,10 +2,7 @@ package com.luomor.keepalive;
 
 import android.content.Context;
 
-import io.dcloud.application.DCLoudApplicationImpl;
 import io.dcloud.application.DCloudApplication;
-import io.dcloud.common.DHInterface.message.ActionBus;
-import io.dcloud.common.DHInterface.message.action.AppOnCreateAction;
 
 public class LCloudApplication extends DCloudApplication {
     private static Context context;
