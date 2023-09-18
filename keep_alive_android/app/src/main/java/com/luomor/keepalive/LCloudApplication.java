@@ -18,7 +18,7 @@ public class LCloudApplication extends DCloudApplication {
         Thread.setDefaultUncaughtExceptionHandler(new CrashHandler());
     }
 
-    //可以声明内部的 MyApplication 成员参数 或 在子类采用 MyApplication application = (MyApplication) getApplication();
+    //可以声明内部的 MyApplication 成员参数 或 在子类采用 LCloudApplication application = (LCloudApplication) getApplication();
     public static Context getContext() {
         return context;
     }
