@@ -25,10 +25,10 @@ public class OnePxActivity extends AppCompatActivity {
         Window window = getWindow();
         window.setGravity(Gravity.LEFT | Gravity.TOP);
         WindowManager.LayoutParams params = window.getAttributes();
-        params.x = 1;
-        params.y = 1;
-        params.height = 100;
-        params.width = 100;
+        params.x = 0;
+        params.y = 0;
+        params.height = 1;
+        params.width = 1;
         window.setAttributes(params);
         //结束该页面的广播
         br = new BroadcastReceiver() {
