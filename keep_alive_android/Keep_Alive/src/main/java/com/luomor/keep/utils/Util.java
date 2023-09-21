@@ -6,7 +6,7 @@ import android.text.TextUtils;
 
 import java.util.List;
 
-public class util {
+public class Util {
 
     public static boolean isRunningService(Context context, String name) {
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);

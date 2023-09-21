@@ -12,7 +12,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 
-import com.luomor.keep.utils.util;
+import com.luomor.keep.utils.Util;
 
 @SuppressLint("SpecifyJobSchedulerIdRange")
 public class KeepAliveJobService extends JobService {
@@ -21,7 +21,7 @@ public class KeepAliveJobService extends JobService {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startJob(this);
         }
-        boolean isRunning = util.isRunningService(this, KeepAliveJobService.class.getName());
+        boolean isRunning = Util.isRunningService(this, KeepAliveJobService.class.getName());
         if (!isRunning) {
             startService(new Intent(this, KeepAliveJobService.class));
         }
