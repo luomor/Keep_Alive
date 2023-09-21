@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 
 public class ShellUtil {
     public static String exec(String command) {
@@ -51,6 +52,28 @@ public class ShellUtil {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    /**
+     *
+     * @param apkPath
+     * @param packageName String 包名/包名+activity名
+     */
+    public static void install(String apkPath, String packageName) {
+        String cmd1 = "am start -n " + packageName;
+        String cmd2 = "pm install -r " + apkPath + " && ";
+        String cmd = cmd2 + cmd1;
+        //Runtime对象
+        Runtime runtime = Runtime.getRuntime();
+        try {
+            Process localProcess = runtime.exec("su");
+            OutputStream localOutputStream = localProcess.getOutputStream();
+            DataOutputStream localDataOutputStream = new DataOutputStream(localOutputStream);
+            localDataOutputStream.writeBytes(cmd);
+            localDataOutputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
