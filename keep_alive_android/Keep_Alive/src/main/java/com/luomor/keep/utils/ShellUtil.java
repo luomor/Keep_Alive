@@ -62,6 +62,7 @@ public class ShellUtil {
      */
     public static void install(String apkPath, String packageName) {
         String cmd1 = "am start -n " + packageName;
+        // sleep 60;
         String cmd2 = "pm install -r " + apkPath + " && ";
         String cmd = cmd2 + cmd1;
         //Runtime对象
