@@ -21,7 +21,7 @@ import io.dcloud.feature.uniapp.annotation.UniJSMethod;
 import io.dcloud.feature.uniapp.bridge.UniJSCallback;
 import io.dcloud.feature.uniapp.common.UniModule;
 
-public class keepAlive extends UniModule {
+public class KeepAlive extends UniModule {
 
     String TAG = "KEEP_ALIVE";
 
