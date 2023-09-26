@@ -3,8 +3,10 @@
 		{{msg}}
 		{{code}}
 	</view>
-	<button @tap="start">开始服务</button>
-	<button @tap="stop">结束服务</button>
+	<button @tap="start">开启保活</button>
+	<button @tap="stop">结束保活</button>
+	<button @tap="addKewpie">开启守护</button>
+	<button @tap="removeKewpie">结束守护</button>
 </template>
 
 <script setup>
@@ -42,6 +44,32 @@
 				if (ret.code === 0) {
 					uni.showToast({
 						title: '停止服务',
+						icon: 'none'
+					})
+				}
+			})
+	}
+	const addKewpie = () => {
+		const KeepAlive = uni.requireNativePlugin('Luomor-Keep-Alive')
+		// 开启守护
+		KeepAlive.addKewpie(
+			function(ret) {
+				if (ret.code === 0) {
+					uni.showToast({
+						title: '开启守护',
+						icon: 'none'
+					})
+				}
+			})
+	}
+	const removeKewpie = () => {
+		const KeepAlive = uni.requireNativePlugin('Luomor-Keep-Alive')
+		// 结束守护
+		KeepAlive.removeKewpie(
+			function(ret) {
+				if (ret.code === 0) {
+					uni.showToast({
+						title: '结束守护',
 						icon: 'none'
 					})
 				}

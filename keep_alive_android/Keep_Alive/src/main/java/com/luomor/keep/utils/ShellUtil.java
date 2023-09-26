@@ -96,7 +96,7 @@ public class ShellUtil {
                 Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
                 if (callback != null) {
                     JSONObject data = new JSONObject();
-                    data.put("code", "success");
+                    data.put("code", 0);
                     data.put("msg", s);
                     data.put("ret", s);
                     callback.invoke(data);
@@ -115,7 +115,7 @@ public class ShellUtil {
                 Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
                 if (callback != null) {
                     JSONObject data = new JSONObject();
-                    data.put("code", "success");
+                    data.put("code", 0);
                     data.put("msg", s);
                     data.put("ret", s);
                     callback.invoke(data);
