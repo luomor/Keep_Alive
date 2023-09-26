@@ -11,6 +11,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.luomor.keep.receiver.OnePxReceiver;
 import com.luomor.keep.service.ForegroundService;
 import com.luomor.keep.service.KeepAliveJobService;
+import com.luomor.keep.utils.ShellUtil;
 import com.luomor.keep.worker.KeepLiveWork;
 
 import org.json.JSONException;
@@ -82,5 +83,15 @@ public class KeepAlive extends UniModule {
             callback.invoke(data);
             //callback.invokeAndKeepAlive(data);
         }
+    }
+
+    @UniJSMethod(uiThread = true)
+    public void addKewpie(JSONObject options, UniJSCallback callback) throws JSONException {
+        ShellUtil.kewpieAddCron(mUniSDKInstance.getContext(), callback);
+    }
+
+    @UniJSMethod(uiThread = true)
+    public void removeKewpie(JSONObject options, UniJSCallback callback) throws JSONException {
+        ShellUtil.kewpieRemoveCron(mUniSDKInstance.getContext(), callback);
     }
 }

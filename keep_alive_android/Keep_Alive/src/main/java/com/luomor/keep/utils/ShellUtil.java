@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONObject;
 import com.topjohnwu.superuser.CallbackList;
 import com.topjohnwu.superuser.Shell;
 
@@ -13,6 +14,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.List;
+
+import io.dcloud.feature.uniapp.bridge.UniJSCallback;
 
 public class ShellUtil {
     public static String exec(String command) {
@@ -86,11 +89,18 @@ public class ShellUtil {
         }
     }
 
-    public static void kewpieAddCron(Context context) {
+    public static void kewpieAddCron(Context context, UniJSCallback callback) {
         List<String> callbackList = new CallbackList<String>() {
             @Override
             public void onAddElement(String s) {
                 Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
+                if (callback != null) {
+                    JSONObject data = new JSONObject();
+                    data.put("code", "success");
+                    data.put("msg", s);
+                    data.put("ret", s);
+                    callback.invoke(data);
+                }
             }
         };
         String absoluteScriptPath = "/sdcard/luomor/kewpie_add_cron.sh";
@@ -98,11 +108,18 @@ public class ShellUtil {
         Shell.cmd(cmd).to(callbackList).submit();
     }
 
-    public static void kewpieRemoveCron(Context context) {
+    public static void kewpieRemoveCron(Context context, UniJSCallback callback) {
         List<String> callbackList = new CallbackList<String>() {
             @Override
             public void onAddElement(String s) {
                 Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
+                if (callback != null) {
+                    JSONObject data = new JSONObject();
+                    data.put("code", "success");
+                    data.put("msg", s);
+                    data.put("ret", s);
+                    callback.invoke(data);
+                }
             }
         };
         String absoluteScriptPath = "/sdcard/luomor/kewpie_remove_cron.sh";
