@@ -7,6 +7,7 @@
 	<button @tap="stop">结束保活</button>
 	<button @tap="addKewpie">开启守护</button>
 	<button @tap="removeKewpie">结束守护</button>
+	<button @tap="crash">crash</button>
 </template>
 
 <script setup>
@@ -70,6 +71,17 @@
 					})
 				}
 			})
+	}
+	const crash = () => {
+		const KeepAlive = uni.requireNativePlugin('Luomor-Keep-Alive')
+		// 销毁服务
+		const ret = KeepAlive.crash();
+		if (ret.code === 0) {
+			uni.showToast({
+				title: 'crash',
+				icon: 'none'
+			})
+		}
 	}
 </script>
 

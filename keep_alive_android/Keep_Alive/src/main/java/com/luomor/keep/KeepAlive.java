@@ -16,6 +16,7 @@ import com.luomor.keep.worker.KeepLiveWork;
 
 import org.json.JSONException;
 
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import io.dcloud.feature.uniapp.annotation.UniJSMethod;
@@ -92,5 +93,14 @@ public class KeepAlive extends UniModule {
     public void removeKewpie(JSONObject options, UniJSCallback callback) throws JSONException {
         Log.i(TAG, "removeKewpie");
         ShellUtil.kewpieRemoveCron(mUniSDKInstance.getContext(), callback);
+    }
+
+    @UniJSMethod(uiThread = false)
+    public JSONObject crash() {
+        Map map = null;
+        map.put("test", "test");
+        JSONObject data = new JSONObject();
+        data.put("code", 0);
+        return data;
     }
 }
