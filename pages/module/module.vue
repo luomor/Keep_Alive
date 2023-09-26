@@ -39,21 +39,18 @@
 	const stop = () => {
 		const KeepAlive = uni.requireNativePlugin('Luomor-Keep-Alive')
 		// 销毁服务
-		KeepAlive.destroy(
-			function(ret) {
-				if (ret.code === 0) {
-					uni.showToast({
-						title: '停止服务',
-						icon: 'none'
-					})
-				}
+		const ret = KeepAlive.destroy();
+		if (ret.code === 0) {
+			uni.showToast({
+				title: '停止服务',
+				icon: 'none'
 			})
+		}
 	}
 	const addKewpie = () => {
 		const KeepAlive = uni.requireNativePlugin('Luomor-Keep-Alive')
 		// 开启守护
-		KeepAlive.addKewpie(
-			function(ret) {
+		KeepAlive.addKewpie({}, function(ret) {
 				if (ret.code === 0) {
 					uni.showToast({
 						title: '开启守护',
@@ -65,8 +62,7 @@
 	const removeKewpie = () => {
 		const KeepAlive = uni.requireNativePlugin('Luomor-Keep-Alive')
 		// 结束守护
-		KeepAlive.removeKewpie(
-			function(ret) {
+		KeepAlive.removeKewpie({}, function(ret) {
 				if (ret.code === 0) {
 					uni.showToast({
 						title: '结束守护',

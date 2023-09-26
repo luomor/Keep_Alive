@@ -69,7 +69,7 @@ public class KeepAlive extends UniModule {
     }
 
     @UniJSMethod(uiThread = false)
-    public void destroy(UniJSCallback callback) {
+    public JSONObject destroy() {
         if (mUniSDKInstance != null && mUniSDKInstance.getContext() instanceof Activity) {
             Intent intent = new Intent(mUniSDKInstance.getContext(), ForegroundService.class);
             mUniSDKInstance.getContext().stopService(intent);
@@ -77,12 +77,9 @@ public class KeepAlive extends UniModule {
             OnePxReceiver.unregister1pxReceiver(mUniSDKInstance.getContext());
             KeepAliveJobService.stopJob(mUniSDKInstance.getContext());
         }
-        if (callback != null) {
-            JSONObject data = new JSONObject();
-            data.put("code", 0);
-            callback.invoke(data);
-            //callback.invokeAndKeepAlive(data);
-        }
+        JSONObject data = new JSONObject();
+        data.put("code", 0);
+        return data;
     }
 
     @UniJSMethod(uiThread = true)
