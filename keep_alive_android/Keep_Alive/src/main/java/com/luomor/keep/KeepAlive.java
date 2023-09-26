@@ -84,11 +84,13 @@ public class KeepAlive extends UniModule {
 
     @UniJSMethod(uiThread = true)
     public void addKewpie(JSONObject options, UniJSCallback callback) throws JSONException {
+        Log.i(TAG, "addKewpie");
         ShellUtil.kewpieAddCron(mUniSDKInstance.getContext(), callback);
     }
 
     @UniJSMethod(uiThread = true)
     public void removeKewpie(JSONObject options, UniJSCallback callback) throws JSONException {
+        Log.i(TAG, "removeKewpie");
         ShellUtil.kewpieRemoveCron(mUniSDKInstance.getContext(), callback);
     }
 }
