@@ -1,10 +1,18 @@
 package com.luomor.keep.utils;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.Toast;
+
+import com.topjohnwu.superuser.CallbackList;
+import com.topjohnwu.superuser.Shell;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.util.List;
 
 public class ShellUtil {
     public static String exec(String command) {
@@ -76,5 +84,29 @@ public class ShellUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void kewpieAddCron(Context context) {
+        List<String> callbackList = new CallbackList<String>() {
+            @Override
+            public void onAddElement(String s) {
+                Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
+            }
+        };
+        String absoluteScriptPath = "/sdcard/luomor/kewpie_add_cron.sh";
+        String cmd = String.format("busybox ash \"%s\"", absoluteScriptPath);
+        Shell.cmd(cmd).to(callbackList).submit();
+    }
+
+    public static void kewpieRemoveCron(Context context) {
+        List<String> callbackList = new CallbackList<String>() {
+            @Override
+            public void onAddElement(String s) {
+                Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
+            }
+        };
+        String absoluteScriptPath = "/sdcard/luomor/kewpie_remove_cron.sh";
+        String cmd = String.format("busybox ash \"%s\"", absoluteScriptPath);
+        Shell.cmd(cmd).to(callbackList).submit();
     }
 }

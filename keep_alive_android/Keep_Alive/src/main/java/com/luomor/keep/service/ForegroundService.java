@@ -13,6 +13,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import io.dcloud.PandoraEntry;
 
 import com.luomor.keep.R;
 import com.luomor.keep.constant.KeepAlive;
@@ -56,11 +57,16 @@ public class ForegroundService extends Service {
                 CharSequence title = intent.getStringExtra("title");
                 CharSequence text = intent.getStringExtra("text");
                 // 点击跳转页面
-                PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+                Intent appIntent = new Intent(this, PandoraEntry.class);
+                appIntent.setAction(Intent.ACTION_MAIN);
+                appIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+                //设置启动模式
+                appIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+                PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, appIntent, PendingIntent.FLAG_IMMUTABLE);
                 notificationManager.createNotificationChannel(channel);
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "channel");
                 builder.setContentTitle(title)
-                        .setSmallIcon(R.drawable.baseline_lock_24) //图标
+                        .setSmallIcon(R.drawable.photo_camera) //图标
                         .setContentText(text) //标题
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT) // 设置优先级 PRIORITY_DEFAULT
                         .setWhen(System.currentTimeMillis()) // 设置通知发送的时间戳
